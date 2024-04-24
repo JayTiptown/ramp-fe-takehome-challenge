@@ -20,22 +20,24 @@ export function InputSelect<TItem>({
 
   const onChange = useCallback<InputSelectOnChange<TItem>>(
     (selectedItem) => {
-      if (selectedItem === null) {
-        return
-      }
-
       consumerOnChange(selectedItem)
       setSelectedValue(selectedItem)
     },
     [consumerOnChange]
   )
 
+
   return (
     <Downshift<TItem>
       id="RampSelect"
       onChange={onChange}
       selectedItem={selectedValue}
-      itemToString={(item) => (item ? parseItem(item).label : "")}
+      itemToString={(item) => {
+        if (item == null) {
+          return "All Employees";
+        }
+        return item ? parseItem(item).label : " ";
+      }}
     >
       {({
         getItemProps,
@@ -122,7 +124,7 @@ const getDropdownPosition: GetDropdownPositionFn = (target) => {
     const { top, left } = target.getBoundingClientRect()
     const { scrollY } = window
     return {
-      top: scrollY + top + 63,
+      top: scrollY + top,
       left,
     }
   }
