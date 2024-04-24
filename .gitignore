@@ -10,6 +10,7 @@ yarn-error.log
 .babelrc
 .eslintrc
 .prettierrc
+.yarn
 
 # Coverage and test reports
 /coverage/
