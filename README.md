@@ -154,7 +154,7 @@ _This bug has 2 wrong behaviors that can be fixed with the same solution. It's a
 2. Select an employee from the list
 3. Wait until transactions load
 
-**Expected:** The **View more** button is not be visible when transactions are filtered by user, because that is not a paginated request.
+**Expected:** The **View more** button should not be visible when transactions are filtered by user, because that is not a paginated request.
 
 **Actual:** The **View more** button is visible even when transactions are filtered by employee. _You can even click **View more** button and get an unexpected result_
 
